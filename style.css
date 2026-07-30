@@ -6,3 +6,12 @@
 .cabeçalho{
     padding: 15px 25px ;
 }
+
+.cartão {
+    width: 260px;
+    height: 260px; ;
+}
+
+.cartão-frente, .cartão-verso {
+    width: 100%;
+}
