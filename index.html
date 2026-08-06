@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Xilogravura – A Arte de Gravar na Madeira</title>
+
+    <style>
+        /* ========== RESET E CONFIGURAÇÕES GERAIS ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 100%;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5ede4;
+            color: #1a1410;
+            line-height: 1.8;
+            padding: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* ========== CONTRASTE ALTO ========== */
+        h1,
+        h2,
+        h3,
+        h4 {
+            color: #2d170a;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-top: 2.2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        h1 {
+            font-size: 2.6rem;
+            border-bottom: 6px solid #8b3a1f;
+            padding-bottom: 0.6rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            border-left: 10px solid #8b3a1f;
+            padding-left: 1.2rem;
+        }
+
+        h3 {
+            font-size: 1.7rem;
+        }
+
+        p,
+        li,
+        .texto-base {
+            font-size: 1.15rem;
+            color: #1a1410;
+            margin-bottom: 0.9rem;
+        }
+
+        /* ========== LINKS ========== */
+        a {
+            color: #7a2e12;
+            text-decoration: underline;
+            text-underline-offset: 0.2rem;
+            font-weight: 600;
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 4px solid #b33a1a;
+            outline-offset: 4px;
+            background-color: #fae5d9;
+            border-radius: 6px;
+        }
+
+        /* ========== BOTÕES ========== */
+        .botao {
+            display: inline-block;
+            background-color: #5a2816;
+            color: #fdf8f3;
+            font-size: 1.2rem;
+            font-weight: 700;
+            padding: 0.8rem 2.4rem;
+            border: 3px solid #5a2816;
+            border-radius: 12px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
+            margin: 0.5rem 0.25rem;
+        }
+
+        .botao:hover {
+            background-color: #7a3a20;
+        }
+
+        .botao:focus-visible {
+            outline: 4px solid #b33a1a;
+            outline-offset: 4px;
+        }
+
+        .botao-secundario {
+            background-color: #fdf8f3;
+            color: #5a2816;
+            border: 3px solid #5a2816;
+        }
+
+        .botao-secundario:hover {
+            background-color: #f0e4d8;
+        }
+
+        /* ========== BOTÃO DO LEITOR DE TELA ========== */
+        .btn-leitor {
+            background-color: #4285f4;
+            color: #ffffff;
+            font-size: 1.2rem;
+            font-weight: 700;
+            padding: 0.8rem 2rem;
+            border: 3px solid #4285f4;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin: 0.5rem 0.25rem;
+        }
+
+        .btn-leitor:hover {
+            background-color: #3367d6;
+            border-color: #3367d6;
+        }
+
+        .btn-leitor:focus-visible {
+            outline: 4px solid #b33a1a;
+            outline-offset: 4px;
+        }
+
+        .btn-leitor.ativo {
+            background-color: #ea4335;
+            border-color: #ea4335;
+        }
+
+        .btn-leitor.ativo:hover {
+            background-color: #d33426;
+            border-color: #d33426;
+        }
+
+        .badge-google {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        /* ========== CARDS ========== */
+        .card-madeira {
+            background: #fdf8f3;
+            border: 4px solid #5a2816;
+            border-radius: 18px;
+            padding: 1.8rem 2.2rem;
+            margin: 2rem 0;
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+        }
+
+        .card-madeira h3 {
+            margin-top: 0;
+        }
+
+        /* ========== GALERIA ========== */
+        .galeria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .item-galeria {
+            background: #fdf8f3;
+            border: 4px solid #5a2816;
+            border-radius: 16px;
+            padding: 1.2rem;
+            transition: background 0.15s;
+        }
+
+        .item-galeria:hover {
+            background: #f0e4d8;
+        }
+
+        .item-galeria img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            border: 3px solid #2d170a;
+            display: block;
+        }
+
+        .item-galeria .legenda {
+            margin-top: 0.6rem;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #2d170a;
+        }
+
+        .item-galeria .descricao {
+            font-size: 1rem;
+            color: #2a1f1a;
+        }
+
+        /* ========== VÍDEOS ========== */
+        .video-wrapper {
+            background: #fdf8f3;
+            border: 4px solid #5a2816;
+            border-radius: 18px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .video-wrapper iframe {
+            width: 100%;
+            max-width: 850px;
+            height: auto;
+            aspect-ratio: 16 / 9;
+            border-radius: 12px;
+            border: 3px solid #2d170a;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .video-wrapper .legenda-video {
+            text-align: center;
+            margin-top: 0.8rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #2d170a;
+        }
+
+        /* ========== LISTA DE MATERIAIS ========== */
+        .lista-materiais {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.2rem;
+            list-style: none;
+            padding: 0;
+            margin: 1.8rem 0;
+        }
+
+        .lista-materiais li {
+            background: #fdf8f3;
+            border: 3px solid #5a2816;
+            border-radius: 14px;
+            padding: 1.2rem 1.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            transition: background 0.15s;
+        }
+
+        .lista-materiais li:hover {
+            background: #f0e4d8;
+        }
+
+        /* ========== FORMULÁRIO ========== */
+        .campo-form {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            color: #2d170a;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            max-width: 500px;
+            padding: 0.8rem;
+            font-size: 1.1rem;
+            border: 3px solid #2d170a;
+            border-radius: 12px;
+            background: #fdf8f3;
+            color: #1a1410;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: #8b3a1f;
+            box-shadow: 0 0 0 4px rgba(139, 58, 31, 0.25);
+        }
+
+        /* ========== MENSAGEM DE DESTAQUE ========== */
+        .mensagem-destaque {
+            background: #e8d9cc;
+            border-left: 10px solid #8b3a1f;
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            color: #1a1410;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin: 0.5rem 0 1rem 0;
+        }
+
+        .mensagem-destaque::before {
+            content: "🪵";
+            font-size: 1.8rem;
+        }
+
+        /* ========== BARRA DO LEITOR DE TELA ========== */
+        .leitor-area {
+            background: #2d170a;
+            color: #fdf8f3;
+            padding: 1rem 1.8rem;
+            border-radius: 14px;
+            margin: 1.5rem 0;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .leitor-area .info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .leitor-area .info p {
+            color: #fdf8f3;
+            margin: 0;
+            font-size: 1.05rem;
+        }
+
+        .leitor-area .status {
+            font-size: 0.9rem;
+            color: #e8d9cc;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            border: 1px solid #e8d9cc;
+        }
+
+        .leitor-area .status.ativo {
+            background: #ea4335;
+            border-color: #ea4335;
+            color: white;
+        }
+
+        /* ========== RODAPÉ ========== */
+        footer {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 6px solid #5a2816;
+            text-align: center;
+            font-size: 1rem;
+            color: #2a1f1a;
+        }
+
+        /* ========== RESPONSIVO ========== */
+        @media (max-width: 700px) {
+            body {
+                padding: 1rem;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            h2 {
+                font-size: 1.6rem;
+            }
+            h3 {
+                font-size: 1.3rem;
+            }
+            p,
+            li {
+                font-size: 1rem;
+            }
+            .card-madeira {
+                padding: 1.2rem;
+            }
+            .leitor-area {
+                flex-direction: column;
+                text-align: center;
+            }
+            .leitor-area .info {
+                justify-content: center;
+            }
+            .btn-leitor {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* ========== UTILITÁRIO ========== */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+
+        .dica-importante {
+            background: #fce8e4;
+            border-left: 10px solid #b33a1a;
+            padding: 1rem 1.5rem;
+            border-radius: 6px;
+            margin: 1.2rem 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ============================================================
+    CABEÇALHO
+    ============================================================ -->
+    <header>
+        <h1>
+            <span aria-hidden="true">🪵</span>
+            Xilogravura – A Arte de Gravar na Madeira
+        </h1>
+        <p style="font-size:1.4rem; font-weight:500; color:#2d170a; margin-top:0.2rem;">
+            História, técnicas, materiais e o encanto da gravura em relevo
+        </p>
+        <p style="color:#2d170a; font-weight:500;">
+            ✅ Alto contraste • ✅ Texto redimensionável • ✅ Navegação por teclado •
+            ✅ Leitor de tela com voz do Google
+        </p>
+    </header>
+
+    <!-- ============================================================
+    NAVEGAÇÃO PRINCIPAL
+    ============================================================ -->
+    <nav aria-label="Menu principal">
+        <ul style="display:flex; flex-wrap:wrap; gap:0.8rem 2rem; list-style:none; padding:1rem 0 0.8rem 0; border-bottom:5px solid #5a2816; margin-bottom:2rem;">
+            <li><a href="#historia" style="font-size:1.2rem; font-weight:700;">📜 História</a></li>
+            <li><a href="#materiais" style="font-size:1.2rem; font-weight:700;">🧰 Materiais</a></li>
+            <li><a href="#comofazer" style="font-size:1.2rem; font-weight:700;">🔨 Como Fazer</a></li>
+            <li><a href="#galeria" style="font-size:1.2rem; font-weight:700;">🖼️ Galeria</a></li>
+            <li><a href="#videos" style="font-size:1.2rem; font-weight:700;">🎬 Vídeos</a></li>
+            <li><a href="#contato" style="font-size:1.2rem; font-weight:700;">✉️ Contato</a></li>
+        </ul>
+    </nav>
+
+    <!-- ============================================================
+    BARRA DO LEITOR DE TELA
+    ============================================================ -->
+    <div class="leitor-area" role="region" aria-label="Leitor de tela">
+        <div class="info">
+            <p>
+                <strong>🔊 Leitor de tela:</strong> Ouça o conteúdo com a voz do Google.
+            </p>
+            <span class="status" id="statusLeitor">⏸️ Parado</span>
+        </div>
+        <button class="btn-leitor" id="btnLer" aria-label="Ativar leitor de tela">
+            <span>🔈</span> Ativar leitor de tela
+            <span class="badge-google">GOOGLE</span>
+        </button>
+    </div>
+
+    <!-- ============================================================
+    SEÇÃO 1 – HISTÓRIA
+    ============================================================ -->
+    <section id="historia">
+        <h2>📜 História da Xilogravura</h2>
+
+        <div class="card-madeira">
+            <h3>Das origens orientais à tradição brasileira</h3>
+
+            <p>
+                A <strong>xilogravura</strong> é uma das técnicas de impressão mais antigas
+                do mundo. Sua origem remonta à <strong>China antiga</strong>, por volta do
+                século VI, onde era usada para imprimir textos budistas em tecidos e papel.
+                A técnica chegou ao Ocidente no século XIV, tornando-se essencial para a
+                produção de livros, cartas de baralho e imagens religiosas antes da invenção
+                da prensa de tipos móveis por Gutenberg.
+            </p>
+
+            <p>
+                No <strong>Brasil</strong>, a xilogravura ganhou força no <strong>Nordeste</strong>,
+                principalmente associada à <strong>literatura de cordel</strong>. Artistas
+                populares como <strong>J. Borges</strong> e <strong>Dila de Cordel</strong>
+                tornaram-se referências, criando imagens que contam histórias do sertão,
+                do folclore e do cotidiano nordestino.
+            </p>
+
+            <div class="mensagem-destaque">
+                A xilogravura é considerada patrimônio cultural imaterial em várias regiões
+                do Brasil, preservando a memória e a identidade popular.
+            </div>
+
+            <!-- Imagem histórica -->
+            <div style="margin:1.5rem 0;">
+                <img
+                src="https://placehold.co/900x400/2d170a/fdf8f3?text=Xilogravura+Histórica+-+Século+XVI"
+                alt="Reprodução de uma xilogravura europeia do século XVI, representando uma cena bíblica com figuras em trajes da época. A imagem tem traços fortes e sombreados característicos da técnica."
+                style="width:100%; max-width:700px; height:auto; border-radius:12px; border:3px solid #2d170a; display:block; margin:0.5rem 0;"
+                />
+                <p style="font-size:0.95rem; color:#2a1f1a;">
+                    <strong>Descrição da imagem:</strong> Xilogravura europeia do século XVI,
+                    com cena religiosa em preto e branco, mostrando o alto contraste e as
+                    texturas obtidas com o corte na madeira.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    SEÇÃO 2 – MATERIAIS UTILIZADOS
+    ============================================================ -->
+    <section id="materiais" style="margin-top:3rem;">
+        <h2>🧰 Materiais Utilizados</h2>
+        <p>
+            A xilogravura utiliza materiais simples, mas que exigem cuidado e
+            precisão para obter bons resultados.
+        </p>
+
+        <ul class="lista-materiais">
+            <li>
+                <span aria-hidden="true">🌳</span>
+                <span>Madeira (cerejeira, peroba, pinus)</span>
+            </li>
+            <li>
+                <span aria-hidden="true">🔪</span>
+                <span>Goivas e formões (formas U e V)</span>
+            </li>
+            <li>
+                <span aria-hidden="true">🖊️</span>
+                <span>Lápis grafite e papel de desenho</span>
+            </li>
+            <li>
+                <span aria-hidden="true">⚫</span>
+                <span>Tinta de impressão (base d'água ou óleo)</span>
+            </li>
+            <li>
+                <span aria-hidden="true">🔄</span>
+                <span>Rolo para aplicação de tinta (babador)</span>
+            </li>
+            <li>
+                <span aria-hidden="true">📄</span>
+                <span>Papel de algodão (300g/m² ou mais)</span>
+            </li>
+            <li>
+                <span aria-hidden="true">🧹</span>
+                <span>Pincéis e escovas para limpeza</span>
+            </li>
+            <li>
+                <span aria-hidden="true">🖐️</span>
+                <span>Prensa ou colher de osso (impressão manual)</span>
+            </li>
+        </ul>
+
+        <div class="card-madeira">
+            <h3>🪵 Escolhendo a madeira certa</h3>
+            <p>
+                A madeira ideal para xilogravura deve ser <strong>macia o suficiente</strong>
+                para ser cortada, mas <strong>resistente</strong> para não lascar facilmente.
+                Madeiras de <strong>cerejeira</strong> e <strong>peroba</strong> são muito
+                usadas no Brasil. No mercado, também se encontra o <strong>pinus</strong>,
+                que é mais acessível e sustentável.
+            </p>
+            <p>
+                A madeira deve estar <strong>bem seca</strong> e com a superfície
+                <strong>lixada</strong> para garantir um corte preciso e uma impressão
+                nítida.
+            </p>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    SEÇÃO 3 – COMO FAZER (PASSO A PASSO)
+    ============================================================ -->
+    <section id="comofazer" style="margin-top:3rem;">
+        <h2>🔨 Como Fazer uma Xilogravura</h2>
+        <p>
+            O processo da xilogravura é artesanal e envolve várias etapas, desde
+            o desenho até a impressão final.
+        </p>
+
+        <div class="card-madeira">
+            <h3>Passo a passo completo</h3>
+
+            <h4>1. Escolha e prepare a madeira</h4>
+            <p>
+                Selecione uma peça de madeira com a espessura adequada (1 a 2 cm) e
+                <strong>lixe a superfície</strong> até que fique lisa e uniforme.
+                Aplainar a madeira ajuda a obter um relevo mais nítido.
+            </p>
+
+            <h4>2. Faça o desenho</h4>
+            <p>
+                Desenhe a imagem diretamente na madeira com lápis grafite, ou
+                <strong>transfira</strong> um desenho prévio usando papel carbono.
+                Lembre-se: a imagem ficará <strong>invertida</strong> na impressão.
+            </p>
+
+            <h4>3. Esculpa com as goivas</h4>
+            <p>
+                Use <strong>goivas em U</strong> para áreas maiores e
+                <strong>formões em V</strong> para detalhes finos. Corte
+                sempre <strong>afastando o instrumento do corpo</strong>, com
+                movimentos firmes e controlados. As áreas que ficarão <strong>brancas</strong>
+                na impressão são as que você deve <strong>remover</strong> da madeira.
+            </p>
+
+            <h4>4. Aplique a tinta</h4>
+            <p>
+                Com o <strong>rolo (babador)</strong>, espalhe a tinta de impressão
+                uniformemente sobre a superfície da matriz de madeira. A tinta deve
+                <strong>cobrir apenas as partes salientes</strong> (não esculpidas).
+            </p>
+
+            <h4>5. Imprima</h4>
+            <p>
+                Coloque o papel sobre a matriz e <strong>pressione com firmeza</strong>.
+                Você pode usar uma <strong>prensa</strong> ou fazer manualmente com
+                uma <strong>colher de osso</strong>, esfregando sobre o papel para
+                transferir a imagem.
+            </p>
+
+            <h4>6. Finalize</h4>
+            <p>
+                Levante o papel cuidadosamente e deixe a impressão <strong>secar</strong>
+                completamente. Você pode repetir o processo com cores diferentes ou
+                criar edições numeradas (gravura original).
+            </p>
+
+            <div class="dica-importante">
+                <strong>🪵 Dica importante:</strong> Sempre faça testes em pedaços
+                pequenos de madeira antes de começar sua obra definitiva. A prática
+                é essencial para dominar a pressão e o ângulo dos cortes.
+            </div>
+        </div>
+
+        <!-- Vídeo do passo a passo -->
+        <div class="video-wrapper">
+            <h3 style="margin-top:0;">🎬 Tutorial completo – do desenho à impressão</h3>
+            <iframe
+            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+            title="Vídeo tutorial detalhado de xilogravura: mostra todas as etapas, desde a preparação da madeira até a impressão final, com dicas de segurança e técnicas de corte."
+            frameborder="0"
+            allowfullscreen
+            loading="lazy"
+            aria-label="Vídeo tutorial de xilogravura, mostrando cada etapa do processo criativo."
+            ></iframe>
+            <div class="legenda-video">
+                📹 Tutorial prático – como fazer sua primeira xilogravura
+            </div>
+            <p style="font-size:1rem; color:#2a1f1a; text-align:center;">
+                <strong>Descrição do vídeo:</strong> Este vídeo de 8 minutos mostra
+                cada etapa do processo: preparação da madeira, transferência do desenho,
+                uso de goivas, aplicação de tinta e impressão manual com colher de osso.
+            </p>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    SEÇÃO 4 – GALERIA DE IMAGENS
+    ============================================================ -->
+    <section id="galeria" style="margin-top:3rem;">
+        <h2>🖼️ Galeria de Gravuras</h2>
+        <p>
+            Obras de mestres da xilogravura brasileira e internacional.
+            Cada imagem possui uma descrição detalhada para acessibilidade.
+        </p>
+
+        <div class="galeria-grid">
+
+            <div class="item-galeria">
+                <img
+                src="https://placehold.co/600x400/2d170a/fdf8f3?text=O+Sertanejo"
+                alt="Xilogravura em preto e branco de um sertanejo com chapéu de couro e facão na cintura, ao lado de um pé de mandacaru florido. Fundo com sol e nuvens estilizadas."
+                />
+                <div class="legenda">🌵 O Sertanejo</div>
+                <div class="descricao">Homenagem ao povo do sertão nordestino, com traços fortes e contrastes marcantes.</div>
+            </div>
+
+            <div class="item-galeria">
+                <img
+                src="https://placehold.co/600x400/5a2816/fdf8f3?text=Histórias+do+Cordel"
+                alt="Gravura que ilustra uma história de cordel: um vaqueiro montado em um cavalo, com a lua e estrelas ao fundo, cercado por elementos da caatinga."
+                />
+                <div class="legenda">📖 Histórias do Cordel</div>
+                <div class="descricao">Cena típica da literatura de cordel, com personagens e paisagem nordestina.</div>
+            </div>
+
+            <div class="item-galeria">
+                <img
+                src="https://placehold.co/600x400/8b3a1f/fdf8f3?text=Flor+do+Sertão"
+                alt="Xilogravura detalhada de uma flor de mandacaru, com pétalas abertas e espinhos bem definidos, sobre um fundo com textura de madeira."
+                />
+                <div class="legenda">🌸 Flor do Mandacaru</div>
+                <div class="descricao">Detalhe da flora sertaneja, com traços finos e orgânicos.</div>
+            </div>
+
+            <div class="item-galeria">
+                <img
+                src="https://placehold.co/600x400/3b1f0e/fdf8f3?text=Abstrato+Florestal"
+                alt="Gravura abstrata com formas que remetem a árvores, folhas e troncos, usando linhas curvas e retas em um padrão rítmico e orgânico."
+                />
+                <div class="legenda">🌳 Abstrato Florestal</div>
+                <div class="descricao">Exploração de texturas e movimentos inspirados na natureza.</div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============================================================
+    SEÇÃO 5 – VÍDEOS
+    ============================================================ -->
+    <section id="videos" style="margin-top:3rem;">
+        <h2>🎬 Vídeos sobre Xilogravura</h2>
+        <p>
+            Assista a documentários e entrevistas com artistas que mantêm viva
+            a tradição da gravura em madeira.
+        </p>
+
+        <div class="video-wrapper">
+            <h3 style="margin-top:0;">🎨 Xilogravura no Brasil – Arte e tradição</h3>
+            <iframe
+            src="https://www.youtube.com/embed/3JZ_D3ELwOQ"
+            title="Documentário sobre a xilogravura brasileira, com entrevistas com artistas populares do Nordeste e uma visita a uma oficina de gravura em madeira."
+            frameborder="0"
+            allowfullscreen
+            loading="lazy"
+            aria-label="Documentário sobre a tradição da xilogravura brasileira."
+            ></iframe>
+            <div class="legenda-video">
+                📹 Documentário – A xilogravura como expressão cultural
+            </div>
+            <p style="font-size:1rem; color:#2a1f1a; text-align:center;">
+                <strong>Descrição do vídeo:</strong> Este documentário de 10 minutos
+                explora a história, os mestres e a importância cultural da xilogravura
+                no Brasil, com imagens de oficinas e entrevistas emocionantes.
+            </p>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    SEÇÃO 6 – FORMULÁRIO DE CONTATO
+    ============================================================ -->
+    <section id="contato" style="margin-top:3rem;">
+        <h2>✉️ Entre em contato</h2>
+        <p>
+            Quer aprender mais sobre xilogravura? Tem sugestões ou quer encomendar
+            uma gravura personalizada? Preencha o formulário abaixo.
+        </p>
+
+        <form action="#" method="post" style="margin-top:1.5rem;">
+            <div class="campo-form">
+                <label for="nome">Nome completo</label>
+                <input type="text" id="nome" name="nome" placeholder="Ex: Ana Maria" required />
+            </div>
+
+            <div class="campo-form">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" placeholder="voce@exemplo.com" required />
+                <span style="display:block; font-size:0.95rem; color:#2a1f1a; margin-top:0.2rem;">
+                    ✉️ Seu e-mail será usado apenas para responder sua mensagem.
+                </span>
+            </div>
+
+            <div class="campo-form">
+                <label for="mensagem">Mensagem</label>
+                <textarea id="mensagem" name="mensagem" rows="4" placeholder="Escreva sua mensagem sobre xilogravura..." required></textarea>
+            </div>
+
+            <button type="submit" class="botao" aria-label="Enviar mensagem sobre xilogravura">
+                📨 Enviar mensagem
+            </button>
+            <button type="reset" class="botao botao-secundario" aria-label="Limpar todos os campos do formulário">
+                🗑️ Limpar
+            </button>
+        </form>
+    </section>
+
+    <!-- ============================================================
+    RODAPÉ
+    ============================================================ -->
+    <footer>
+        <p style="font-size:1.1rem;">
+            <strong>🪵 Xilogravura Acessível</strong> – Arte, cultura e inclusão
+        </p>
+        <p style="font-size:0.95rem;">
+            Baseado nas <a href="https://www.w3.org/WAI/standards-guidelines/wcag/" target="_blank" rel="noopener noreferrer">WCAG 2.1</a>
+            e na <a href="https://www.abnt.org.br/" target="_blank" rel="noopener noreferrer">ABNT NBR 17225</a>.
+        </p>
+        <p style="font-size:0.95rem; margin-top:0.3rem;">
+            ✅ Contraste 4.5:1 • ✅ Foco visível • ✅ Texto redimensionável •
+            ✅ Leitor de tela com voz do Google
+        </p>
+        <p style="font-size:0.9rem; color:#3b2a1f; margin-top:0.5rem;">
+            &copy; 2026 – Projeto demonstrativo de acessibilidade em sites culturais.
+        </p>
+    </footer>
+
+    <!-- ============================================================
+    JAVASCRIPT – LEITOR DE TELA COM VOZ DO GOOGLE
+    ============================================================ -->
+    <script>
+        (function() {
+            'use strict';
+
+            // ========== REFERÊNCIAS DOS ELEMENTOS ==========
+            const btnLer = document.getElementById('btnLer');
+            const statusLeitor = document.getElementById('statusLeitor');
+            let utterance = null;
+            let isReading = false;
+            let vozesDisponiveis = [];
+
+            // ========== VOZES DO GOOGLE EM PORTUGUÊS ==========
+            const NOMES_VOZ_GOOGLE = [
+                'Google Português do Brasil',
+                'Google brasileiro',
+                'Google Brazil Portuguese',
+                'Google pt-BR',
+                'Google Portuguese (Brazil)',
+                'pt-BR Google Female',
+                'Google Female pt-BR',
+                'Google Brasil',
+                'Google Portuguese'
+            ];
+
+            // ========== FUNÇÃO PARA EXTRAIR TEXTO DA PÁGINA ==========
+            function extrairTextoParaLeitura() {
+                const seletores = [
+                    'h1', 'h2', 'h3', 'h4',
+                    'p',
+                    'li',
+                    '.legenda',
+                    '.descricao',
+                    '.legenda-video',
+                    '.mensagem-destaque',
+                    '.dica-importante',
+                    'label'
+                ];
+
+                let textoCompleto = '';
+
+                seletores.forEach(seletor => {
+                    const elementos = document.querySelectorAll(seletor);
+                    elementos.forEach(el => {
+                        if (el.closest('.leitor-area')) return;
+                        if (el.classList.contains('sr-only')) return;
+                        let texto = el.textContent.trim();
+                        if (texto.length > 0) {
+                            texto = texto.replace(/[^\w\s,.!?;:()'"]/g, ' ');
+                            texto = texto.replace(/\s+/g, ' ');
+                            textoCompleto += texto + '. ';
+                        }
+                    });
+                });
+
+                // Adiciona descrições das imagens (alt)
+                const imagens = document.querySelectorAll('img');
+                imagens.forEach(img => {
+                    const alt = img.getAttribute('alt');
+                    if (alt && alt.length > 0) {
+                        textoCompleto += 'Imagem: ' + alt + '. ';
+                    }
+                });
+
+                // Adiciona títulos dos vídeos
+                const iframes = document.querySelectorAll('iframe');
+                iframes.forEach(iframe => {
+                    const title = iframe.getAttribute('title');
+                    const ariaLabel = iframe.getAttribute('aria-label');
+                    if (title && title.length > 0) {
+                        textoCompleto += 'Vídeo: ' + title + '. ';
+                    } else if (ariaLabel && ariaLabel.length > 0) {
+                        textoCompleto += 'Vídeo: ' + ariaLabel + '. ';
+                    }
+                });
+
+                // Adiciona descrições dos vídeos
+                const descricoesVideo = document.querySelectorAll('.video-wrapper p strong');
+                descricoesVideo.forEach(el => {
+                    const texto = el.parentElement.textContent.trim();
+                    if (texto.length > 0) {
+                        textoCompleto += texto + '. ';
+                    }
+                });
+
+                return textoCompleto;
+            }
+
+            // ========== ENCONTRAR VOZ DO GOOGLE ==========
+            function encontrarVozGoogle() {
+                const todasVozes = window.speechSynthesis.getVoices();
+                
+                // 1. Procura exatamente pelos nomes conhecidos do Google
+                for (const nome of NOMES_VOZ_GOOGLE) {
+                    const encontrada = todasVozes.find(voz => 
+                        voz.name === nome || 
+                        voz.name.toLowerCase().includes(nome.toLowerCase())
+                    );
+                    if (encontrada) return encontrada;
+                }
+
+                // 2. Qualquer voz do Google com idioma português
+                const googlePt = todasVozes.find(voz => 
+                    voz.name.toLowerCase().includes('google') && 
+                    (voz.lang.startsWith('pt') || voz.lang === 'pt-BR' || voz.lang === 'pt_PT')
+                );
+                if (googlePt) return googlePt;
+
+                // 3. Qualquer voz do Google (independente do idioma)
+                const anyGoogle = todasVozes.find(voz => 
+                    voz.name.toLowerCase().includes('google')
+                );
+                if (anyGoogle) return anyGoogle;
+
+                // 4. Qualquer voz em português
+                const ptVoice = todasVozes.find(voz => 
+                    voz.lang.startsWith('pt') || voz.lang === 'pt-BR'
+                );
+                if (ptVoice) return ptVoice;
+
+                // 5. Último recurso: primeira voz disponível
+                return todasVozes.length > 0 ? todasVozes[0] : null;
+            }
+
+            // ========== FUNÇÃO PRINCIPAL DE LEITURA ==========
+            function alternarLeitura() {
+                // Se já está lendo, para
+                if (isReading) {
+                    window.speechSynthesis.cancel();
+                    isReading = false;
+                    btnLer.innerHTML = '<span>🔈</span> Ativar leitor de tela <span class="badge-google">GOOGLE</span>';
+                    btnLer.classList.remove('ativo');
+                    statusLeitor.textContent = '⏸️ Parado';
+                    statusLeitor.classList.remove('ativo');
+                    return;
+                }
+
+                const texto = extrairTextoParaLeitura();
+                if (!texto || texto.trim().length === 0) {
+                    alert('Nenhum texto encontrado para leitura.');
+                    return;
+                }
+
+                // Atualiza vozes disponíveis
+                vozesDisponiveis = window.speechSynthesis.getVoices();
+
+                // Cria a utterance
+                utterance = new SpeechSynthesisUtterance(texto);
+                utterance.lang = 'pt-BR';
+                utterance.rate = 0.9;
+                utterance.pitch = 1.0;
+                utterance.volume = 1.0;
+
+                // ========== APLICA A VOZ DO GOOGLE ==========
+                const vozGoogle = encontrarVozGoogle();
+                if (vozGoogle) {
+                    utterance.voice = vozGoogle;
+                    utterance.lang = vozGoogle.lang || 'pt-BR';
+                    console.log('🎤 Voz em uso:', vozGoogle.name, '| Idioma:', vozGoogle.lang);
+                } else {
+                    console.log('🔊 Usando voz padrão do navegador');
+                }
+
+                // ========== EVENTOS DA LEITURA ==========
+                utterance.onstart = function() {
+                    isReading = true;
+                    btnLer.innerHTML = '<span>⏹️</span> Parar leitura <span class="badge-google">GOOGLE</span>';
+                    btnLer.classList.add('ativo');
+                    statusLeitor.textContent = '🔊 Lendo...';
+                    statusLeitor.classList.add('ativo');
+                };
+
+                utterance.onend = function() {
+                    isReading = false;
+                    btnLer.innerHTML = '<span>🔈</span> Ativar leitor de tela <span class="badge-google">GOOGLE</span>';
+                    btnLer.classList.remove('ativo');
+                    statusLeitor.textContent = '✅ Finalizado';
+                    statusLeitor.classList.remove('ativo');
+                    setTimeout(() => {
+                        if (!isReading) {
+                            statusLeitor.textContent = '⏸️ Parado';
+                        }
+                    }, 3000);
+                };
+
+                utterance.onerror = function(event) {
+                    isReading = false;
+                    btnLer.innerHTML = '<span>🔈</span> Ativar leitor de tela <span class="badge-google">GOOGLE</span>';
+                    btnLer.classList.remove('ativo');
+                    statusLeitor.textContent = '❌ Erro';
+                    statusLeitor.classList.remove('ativo');
+                    console.error('❌ Erro na leitura:', event);
+                };
+
+                // ========== INICIA A LEITURA ==========
+                window.speechSynthesis.speak(utterance);
+            }
+
+            // ========== FUNÇÃO PARA PARAR A LEITURA ==========
+            function pararLeitura() {
+                if (window.speechSynthesis.speaking || isReading) {
+                    window.speechSynthesis.cancel();
+                    isReading = false;
+                    btnLer.innerHTML = '<span>🔈</span> Ativar leitor de tela <span class="badge-google">GOOGLE</span>';
+                    btnLer.classList.remove('ativo');
+                    statusLeitor.textContent = '⏹️ Interrompido';
+                    statusLeitor.classList.remove('ativo');
+                    setTimeout(() => {
+                        if (!isReading) {
+                            statusLeitor.textContent = '⏸️ Parado';
+                        }
+                    }, 3000);
+                    console.log('⏹️ Leitura interrompida');
+                }
+            }
+
+            // ========== CONFIGURAR EVENTOS ==========
+            btnLer.addEventListener('click', alternarLeitura);
+
+            // ========== CARREGAR VOZES ==========
+            function carregarVozes() {
+                const vozes = window.speechSynthesis.getVoices();
+                if (vozes.length > 0) {
+                    vozesDisponiveis = vozes;
+                    console.log('✅ Vozes carregadas:', vozes.length);
+                    return true;
+                }
+                return false;
+            }
+
+            if (window.speechSynthesis) {
+                // Tenta carregar imediatamente
+                if (!carregarVozes()) {
+                    // Se não carregou, tenta novamente
+                    setTimeout(() => {
+                        if (!carregarVozes()) {
+                            window.speechSynthesis.onvoiceschanged = function() {
+                                carregarVozes();
+                                window.speechSynthesis.onvoiceschanged = null;
+                            };
+                        }
+                    }, 200);
+                }
+
+                // Recarregar quando a página ganhar foco
+                document.addEventListener('visibilitychange', function() {
+                    if (!document.hidden) {
+                        setTimeout(carregarVozes, 300);
+                    }
+                });
+            }
+
+            // ========== PARA A LEITURA SE A PÁGINA FOR FECHADA ==========
+            window.addEventListener('beforeunload', function() {
+                window.speechSynthesis.cancel();
+            });
+
+            console.log('🔊 Leitor de tela com voz do Google carregado!');
+            console.log('💡 Clique no botão para ativar/parar a leitura');
+
+        })();
+    </script>
+
+</body>
+</html>
